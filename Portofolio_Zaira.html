@@ -1,0 +1,3181 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#fff9ef" name="theme-color" />
+  <title>Portofolio Zaira | Data Analyst &amp; Business Analysis</title>
+  <meta
+    content="Portofolio Zaira Nur Azizah — Data Analysis, Excel, Google Sheets, Business Analysis, dan Academic Projects."
+    name="description" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Fredoka:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ==========================================================================
+       1. VARIABLES & RESET
+       ========================================================================== */
+    :root {
+      --ink: #34322f;
+      --cream: #fff9ef;
+      --pink: #ffc8d9;
+      --lilac: #dcd1ff;
+      --mint: #d2efcf;
+      --yellow: #ffe8a3;
+      --orange: #ffd7b7;
+      --paper: #fffefb;
+      --line: #393833;
+      --muted: #77716b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    /* ==========================================================================
+       2. REUSABLE COMPONENTS & UTILITIES
+       ========================================================================== */
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 34px;
+    }
+
+    .pill {
+      border: 2px solid var(--line);
+      border-radius: 40px;
+      padding: 10px 18px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--paper);
+      box-shadow: 3px 4px 0 var(--line);
+    }
+
+    .topline {
+      background: #d8efcc;
+      text-align: center;
+      padding: 9px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 24px;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      background: var(--yellow);
+      font-weight: 800;
+      box-shadow: 5px 5px 0 var(--line);
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .btn.secondary {
+      background: var(--paper);
+    }
+
+    .btn.cv-download {
+      background: #d2efcf !important;
+    }
+
+    .btn:active,
+    .pill:active,
+    .hire:active,
+    .nav-cv:active,
+    .contactlinks a:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--line);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 17px;
+      color: #8b7181;
+    }
+
+    .sectitle {
+      font: 700 clamp(36px, 5vw, 64px) / 1.1 Fredoka, sans-serif;
+      letter-spacing: -1.5px;
+    }
+
+    .sectitle i {
+      font-style: normal;
+      color: #e895a9;
+    }
+
+    .sectiontop {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 46px !important;
+    }
+
+    .sectiontop p {
+      max-width: 330px;
+      color: #77716b;
+      line-height: 1.7;
+    }
+
+    .chips {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .chip {
+      font-weight: 700;
+      font-size: 12px;
+      background: white;
+      border: 1.5px solid var(--ink);
+      border-radius: 30px;
+      padding: 9px 13px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s, transform .65s;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section[id],
+    header[id],
+    .case-subhead[id] {
+      scroll-margin-top: 80px;
+    }
+
+    /* Universal airy top/bottom section padding */
+    section,
+    .projects,
+    .case-study-section,
+    .academic,
+    .source-section,
+    .skillsarea,
+    .journey,
+    .gallery-section,
+    .contact {
+      padding-top: 130px !important;
+      padding-bottom: 130px !important;
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (DESKTOP)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 249, 239, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--line);
+      transition: background .2s ease;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap !important;
+      padding-top: 14px !important;
+      padding-bottom: 14px !important;
+      gap: 20px !important;
+    }
+
+    .logo {
+      font: 700 25px Fredoka, sans-serif;
+      letter-spacing: -1px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #ec7e9e;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 2vw, 28px) !important;
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .navlinks a {
+      padding: 6px 4px;
+      transition: color .15s ease;
+      white-space: nowrap;
+    }
+
+    .navlinks a:hover {
+      color: #cf6792;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px !important;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .nav-cv {
+      font-size: 12.5px;
+      font-weight: 800;
+      border: 2px solid #34322f;
+      padding: 9px 14px;
+      border-radius: 13px;
+      background: #fff;
+      white-space: nowrap;
+      box-shadow: 2px 3px 0 var(--line);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .hire {
+      background: var(--pink);
+      padding: 10px 20px;
+      border-radius: 22px;
+      border: 2px solid var(--line);
+      font-weight: 800;
+      font-size: 13px;
+      box-shadow: 3px 4px 0 var(--line);
+      white-space: nowrap;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: var(--paper);
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      padding: 8px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--ink);
+      box-shadow: 3px 4px 0 var(--line);
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+
+    .menu-toggle:hover {
+      background: var(--yellow);
+      transform: translate(2px, 2px);
+      box-shadow: 1px 2px 0 var(--line);
+    }
+
+    .hamburger-box {
+      width: 18px;
+      height: 14px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .menu-toggle.active .hamburger-bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active .hamburger-bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* ==========================================================================
+       4. MOBILE MENU DRAWER & BACKDROP
+       ========================================================================== */
+    .mobile-menu-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(52, 50, 47, 0.45);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+
+    .mobile-menu-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(340px, 86vw);
+      background: var(--cream);
+      border-left: 3px solid var(--line);
+      box-shadow: -8px 0 0 rgba(57, 56, 51, 0.12);
+      z-index: 999;
+      transform: translateX(105%);
+      transition: transform .32s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 22px;
+      border-bottom: 2px solid var(--line);
+      background: #fff;
+      text-align: left;
+    }
+
+    .mobile-menu-brand {
+      font: 700 20px Fredoka, sans-serif;
+      letter-spacing: -0.5px;
+      text-align: left;
+    }
+
+    .mobile-menu-brand span {
+      color: #ec7e9e;
+    }
+
+    .mobile-menu-close {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper);
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 2px 3px 0 var(--line);
+      transition: transform .15s, box-shadow .15s, background .15s;
+    }
+
+    .mobile-menu-close:hover {
+      background: var(--pink);
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--line);
+    }
+
+    .mobile-menu-scroll {
+      padding: 20px 22px 28px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      text-align: left;
+      align-items: stretch;
+    }
+
+    .mobile-section-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #8b7181;
+      margin-bottom: 12px;
+      text-align: left;
+      align-self: flex-start;
+    }
+
+    .mobile-links {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      width: 100%;
+      text-align: left;
+      align-items: stretch;
+    }
+
+    .m-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: left;
+      gap: 12px;
+      padding: 11px 14px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 12px;
+      border: 1.5px solid transparent;
+      width: 100%;
+      box-sizing: border-box;
+      transition: all .15s ease;
+    }
+
+    .m-link .m-badge {
+      font-size: 10px;
+      font-weight: 800;
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      padding: 3px 7px;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .m-link .m-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .m-link .m-arrow {
+      font-size: 13px;
+      opacity: 0.45;
+      transition: transform .15s ease, opacity .15s ease;
+      flex-shrink: 0;
+    }
+
+    .m-link:hover {
+      background: #fff;
+      border-color: var(--line);
+      transform: translateX(4px);
+      box-shadow: 2px 3px 0 var(--line);
+    }
+
+    .m-link:hover .m-arrow {
+      opacity: 1;
+      transform: translate(2px, -2px);
+      color: #cf6792;
+    }
+
+    .mobile-menu-divider {
+      height: 2px;
+      background: var(--line);
+      opacity: .15;
+      margin: 20px 0;
+      width: 100%;
+    }
+
+    .mobile-menu-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .mobile-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 13px 18px;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 13px;
+      box-shadow: 3px 4px 0 var(--line);
+      transition: transform .15s, box-shadow .15s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .mobile-hire {
+      background: var(--pink);
+    }
+
+    .mobile-cv {
+      background: var(--mint);
+    }
+
+    .mobile-btn:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 2px 0 var(--line);
+    }
+
+    .mobile-menu-footer {
+      margin-top: auto;
+      padding-top: 22px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION
+       ========================================================================== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      align-items: center;
+      gap: 36px;
+      min-height: 630px;
+      padding-top: 65px;
+      padding-bottom: 85px;
+      position: relative;
+    }
+
+    .tiny {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .tiny .dot {
+      height: 9px;
+      width: 9px;
+      background: #6ab878;
+      border-radius: 100%;
+    }
+
+    .hero h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: clamp(56px, 7vw, 92px);
+      line-height: 1.2;
+      letter-spacing: -2px;
+      margin: 22px 0;
+    }
+
+    .hero h1 .bubble {
+      display: inline-block;
+      background: var(--pink);
+      padding: 4px 22px 8px;
+      border-radius: 36px;
+      white-space: nowrap;
+      margin-top: 14px;
+      vertical-align: middle;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #a498e6;
+    }
+
+    .lead {
+      font-size: 17px;
+      line-height: 1.85;
+      max-width: 610px;
+      color: #595751;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .heroart {
+      height: 490px;
+      position: relative;
+    }
+
+    .arch {
+      position: absolute;
+      inset: 32px 27px 18px 37px;
+      border: 3px solid var(--line);
+      border-radius: 190px 190px 33px 33px;
+      background: #e8ddff;
+      box-shadow: 9px 11px 0 #c8e4bd;
+      overflow: hidden;
+    }
+
+    .realportrait {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 26%;
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+
+    .arttag {
+      position: absolute;
+      z-index: 6;
+      background: white;
+      border: 2px solid var(--ink);
+      box-shadow: 4px 5px 0 var(--ink);
+      padding: 11px 16px;
+      border-radius: 13px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tag1 {
+      left: -2px;
+      top: 125px;
+      transform: rotate(-9deg);
+    }
+
+    .tag2 {
+      right: -7px;
+      bottom: 79px;
+      transform: rotate(8deg);
+      background: var(--yellow);
+    }
+
+    .asterisk {
+      font: 700 83px Fredoka, sans-serif;
+      position: absolute;
+      right: -1px;
+      top: -17px;
+      color: #f5a2bd;
+      text-shadow: 2px 2px #333;
+    }
+
+    .star {
+      position: absolute;
+      font: 700 48px Fredoka, sans-serif;
+      left: 5px;
+      bottom: 0;
+      color: #e9a86a;
+    }
+
+    /* ==========================================================================
+       6. MARQUEE BANNER
+       ========================================================================== */
+    .marquee {
+      background: var(--pink);
+      border-block: 2px solid var(--ink);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 20px 0;
+      font: 600 18px Fredoka, sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .marquee div {
+      display: inline-block;
+      animation: scroll 24s linear infinite;
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ==========================================================================
+       7. SECTION 01: ABOUT ME
+       ========================================================================== */
+    #about .sectitle {
+      margin-bottom: 46px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .aboutbox {
+      border: 2px solid var(--ink);
+      border-radius: 26px;
+      padding: 33px;
+      background: var(--paper);
+      box-shadow: 6px 7px 0 var(--ink);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .aboutbox.purple {
+      background: var(--lilac);
+    }
+
+    .aboutbox h3 {
+      font: 700 30px Fredoka, sans-serif;
+      margin-bottom: 17px;
+    }
+
+    .aboutbox p {
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .aboutbox .chips {
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    /* ==========================================================================
+       8. SECTION 02: SELECTED PROJECTS (#work)
+       ========================================================================== */
+    .projects {
+      background: #f5f0ff;
+      border-block: 2px solid var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 27px;
+    }
+
+    .project {
+      background: #fffdf8;
+      border: 2px solid var(--ink);
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 6px 7px 0 var(--ink);
+      transition: transform .2s, box-shadow .2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 6px 9px 0 var(--ink);
+    }
+
+    .projectvisual {
+      height: 265px;
+      border-bottom: 2px solid var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .projectvisual.green {
+      background: #d6f0d7;
+    }
+
+    .projectvisual.yellow {
+      background: #ffe8b5;
+    }
+
+    .projectvisual.pink {
+      background: #ffd9e7;
+    }
+
+    .projectvisual.blue {
+      background: #d8e7ff;
+    }
+
+    .screenshot-visual {
+      padding: 17px !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .screenshot-visual img {
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: white;
+      border: 2px solid #393833;
+      border-radius: 12px;
+      box-shadow: 5px 5px 0 #393833;
+    }
+
+    .bigemoji {
+      font-size: 104px;
+      filter: drop-shadow(7px 8px 0 #45413c22);
+      transform: rotate(-11deg);
+    }
+
+    .decosticker {
+      position: absolute;
+      border: 2px solid #34322f;
+      background: white;
+      padding: 8px 13px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 900;
+      transform: rotate(12deg);
+      right: 23px;
+      top: 27px;
+    }
+
+    .projectbody {
+      padding: 27px 27px 30px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .projectbody .index {
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 800;
+      color: #888;
+    }
+
+    .projectbody h3 {
+      font: 700 28px Fredoka, sans-serif;
+      margin: 10px 0;
+    }
+
+    .projectbody p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #67635d;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .projectbody a {
+      font-size: 13px;
+      font-weight: 800;
+      border-bottom: 2px solid #e895a9;
+      padding-bottom: 4px;
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       9. SECTION 03: FEATURED CASE STUDIES
+       ========================================================================== */
+    .case-study-section {
+      background: #fffdf8;
+      border-bottom: 2px solid #34322f;
+    }
+
+    .case-intro {
+      max-width: 760px;
+      line-height: 1.8;
+      color: #68625d;
+      margin-bottom: 42px !important;
+    }
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .case-photo {
+      background: #edebff;
+      border: 2px solid #34322f;
+      border-radius: 24px;
+      box-shadow: 6px 7px 0 #34322f;
+      padding: 16px;
+      position: relative;
+    }
+
+    .case-photo img {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #cec6e9;
+    }
+
+    .screenshot-caption {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 14px;
+    }
+
+    .case-detail {
+      background: #fff0f4;
+      border: 2px solid #34322f;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 6px 7px 0 #34322f;
+    }
+
+    .case-detail h3 {
+      font: 700 32px Fredoka, sans-serif;
+      margin: 18px 0;
+    }
+
+    .case-detail p {
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .case-tag {
+      background: #dfd6ff;
+      border-radius: 30px;
+      padding: 9px 13px;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .case-metrics>div {
+      background: white;
+      padding: 15px;
+      border: 1.5px solid #34322f;
+      border-radius: 15px;
+    }
+
+    .case-metrics small {
+      display: block;
+      color: #7b747c;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+
+    .case-metrics strong {
+      display: block;
+      font: 700 22px Fredoka, sans-serif;
+      margin-top: 6px;
+    }
+
+    .case-note {
+      font-size: 12px !important;
+      color: #77716b;
+    }
+
+    .case-divider {
+      height: 2px;
+      background: #34322f;
+      opacity: .15;
+      margin: 64px 0 46px !important;
+    }
+
+    .case-subhead {
+      margin-top: 0 !important;
+      margin-bottom: 34px !important;
+    }
+
+    .case-kicker {
+      display: inline-block;
+      background: #fff;
+      border: 2px solid #34322f;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      box-shadow: 3px 4px 0 #34322f;
+      margin-bottom: 14px;
+    }
+
+    .case-subhead h3 {
+      font: 700 32px Fredoka, sans-serif;
+      margin: 8px 0 12px;
+    }
+
+    .case-subhead p {
+      max-width: 760px;
+      line-height: 1.8;
+      color: #645f59;
+      margin-bottom: 0;
+    }
+
+    .case-copy .mini {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #8b7181;
+      margin-bottom: 12px;
+    }
+
+    .case-copy h3 {
+      font: 700 28px Fredoka, sans-serif;
+      margin: 8px 0 12px;
+    }
+
+    .case-copy p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #595751;
+      margin-bottom: 14px;
+    }
+
+    .case-highlight {
+      background: #fff7d8;
+      border: 2px solid #34322f;
+      border-radius: 18px;
+      padding: 18px 18px 14px;
+      box-shadow: 4px 5px 0 #34322f;
+      margin-top: 18px;
+    }
+
+    .case-highlight strong {
+      display: block;
+      font: 700 18px Fredoka, sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .case-highlight ul {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+      color: #57524d;
+    }
+
+    /* ==========================================================================
+       10. SECTION 04: ACADEMIC PROJECTS
+       ========================================================================== */
+    .academic {
+      background: #fff9ef;
+    }
+
+    .academicsub {
+      font-size: 15px;
+      max-width: 760px;
+      line-height: 1.9;
+      color: #706961;
+      margin-bottom: 42px !important;
+    }
+
+    .acagrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .acacard {
+      border: 2px solid #393833;
+      background: #fffefb;
+      border-radius: 25px;
+      box-shadow: 6px 7px 0 #393833;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .acavis {
+      height: 245px;
+      overflow: hidden;
+      background: #dcd1ff;
+      border-bottom: 2px solid #393833;
+      position: relative;
+      padding: 15px 25px;
+    }
+
+    .acavis img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 18px #3333;
+    }
+
+    .acavis .bubblelabel {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      border: 2px solid #393833;
+      border-radius: 30px;
+      background: #ffe8a3;
+      padding: 7px 12px;
+      font: 700 11px 'DM Sans', sans-serif;
+      letter-spacing: 1px;
+      box-shadow: 2px 3px 0 #393833;
+    }
+
+    .acacard:nth-child(2) .acavis {
+      background: #d2efcf;
+    }
+
+    .acacard:nth-child(3) .acavis {
+      background: #ffc8d9;
+    }
+
+    .acacard:nth-child(4) .acavis {
+      background: #ffe8a3;
+    }
+
+    .acabody {
+      padding: 24px 26px 27px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .acabody h3 {
+      font: 700 25px / 1.17 Fredoka, sans-serif;
+      letter-spacing: -.3px;
+      margin: 12px 0;
+    }
+
+    .acabody p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #615d56;
+    }
+
+    .acaeyebrow {
+      font-weight: 800;
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      color: #987a95;
+    }
+
+    .acametric {
+      margin-top: auto;
+      border: 1.5px dashed #928c83;
+      background: #f7f3ff;
+      border-radius: 14px;
+      padding: 13px 15px;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .acametric strong {
+      display: block;
+      color: #32302b;
+      font: 700 19px Fredoka, sans-serif;
+    }
+
+    .acatag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 13px 0 18px;
+    }
+
+    .acatag span {
+      background: #f5effd;
+      border: 1px solid #b6a9c5;
+      border-radius: 40px;
+      padding: 6px 10px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .acalink {
+      align-self: start;
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 800;
+      border-bottom: 2px solid #e895a9;
+      padding-bottom: 4px;
+    }
+
+    .acanote {
+      margin-top: 38px !important;
+      border-left: 4px solid #b3a5e5;
+      padding-left: 15px;
+      font-size: 12px;
+      line-height: 1.8;
+      color: #766e6d;
+    }
+
+    /* ==========================================================================
+       11. SECTION 05: DATA SOURCES
+       ========================================================================== */
+    .source-section {
+      background: #f5f8f1;
+      border-top: 2px solid #34322f;
+      border-bottom: 2px solid #34322f;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+      margin-top: 30px;
+    }
+
+    .source-card {
+      background: #fffefa;
+      border: 2px solid #34322f;
+      border-radius: 23px;
+      overflow: hidden;
+      box-shadow: 5px 6px 0 #34322f;
+    }
+
+    .source-img {
+      display: block;
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 2px solid #34322f;
+    }
+
+    .source-content {
+      padding: 23px;
+    }
+
+    .source-content h3 {
+      font: 700 27px Fredoka, sans-serif;
+      margin: 4px 0 10px;
+    }
+
+    .source-content p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #645f59;
+    }
+
+    .source-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #8061ad;
+      letter-spacing: 1px;
+    }
+
+    .source-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .source-chips span {
+      padding: 6px 10px;
+      border-radius: 30px;
+      background: #f0eaff;
+      border: 1px solid #9990ae;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .source-note {
+      margin-top: 38px !important;
+      font-size: 13px;
+      line-height: 1.75;
+      color: #625f5b;
+    }
+
+    /* ==========================================================================
+       12. SECTION 06: TOOLS & SKILLS
+       ========================================================================== */
+    .skillsarea {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .skillcards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .skill {
+      border: 2px solid var(--ink);
+      border-radius: 19px;
+      min-height: 145px;
+      padding: 22px;
+      box-shadow: 4px 5px 0 var(--ink);
+    }
+
+    .skill:nth-child(1) {
+      background: #d2efcf;
+      transform: rotate(-1deg);
+    }
+
+    .skill:nth-child(2) {
+      background: #e5ddff;
+      transform: rotate(1deg);
+    }
+
+    .skill:nth-child(3) {
+      background: #ffe8b5;
+      transform: rotate(0);
+    }
+
+    .skill:nth-child(4) {
+      background: #f5dbe6;
+      transform: rotate(-1deg);
+    }
+
+    .skill strong {
+      display: block;
+      font: 700 22px Fredoka, sans-serif;
+      margin: 15px 0 5px;
+    }
+
+    .skill small {
+      font-size: 12px;
+    }
+
+    /* ==========================================================================
+       13. SECTION 07: JOURNEY
+       ========================================================================== */
+    .journey {
+      background: #fff0e9;
+      border-block: 2px solid var(--ink);
+    }
+
+    #journey .sectitle {
+      margin-bottom: 46px !important;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .timecard {
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 5px 6px 0 var(--ink);
+    }
+
+    .timecard .year {
+      display: inline-block;
+      background: var(--lilac);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .timecard h3 {
+      font: 700 22px Fredoka, sans-serif;
+      margin: 20px 0 10px;
+    }
+
+    .timecard p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #68625d;
+    }
+
+    /* ==========================================================================
+       14. SECTION 08: GALLERY
+       ========================================================================== */
+    .gallery-section {
+      background: #fff3f5;
+      border-top: 2px solid #34322f;
+      border-bottom: 2px solid #34322f;
+    }
+
+    .gallerygrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .photocard {
+      margin: 0;
+      background: #fffefb;
+      border: 2px solid #34322f;
+      border-radius: 24px;
+      padding: 12px;
+      box-shadow: 7px 8px 0 #dcd1ff;
+      overflow: hidden;
+    }
+
+    .photocard img {
+      width: 100%;
+      aspect-ratio: 1.42;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .photocard figcaption {
+      padding: 14px 10px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .photocard strong {
+      font: 600 22px Fredoka, sans-serif;
+    }
+
+    .photocard span {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #66615e;
+    }
+
+    .pressbox {
+      margin-top: 52px !important;
+      padding: 25px 32px;
+      border: 2px solid #34322f;
+      border-radius: 24px;
+      background: #e7f1d9;
+      box-shadow: 6px 7px 0 #34322f;
+    }
+
+    .pressbox>span {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .pressbox h3 {
+      font: 600 27px Fredoka, sans-serif;
+      margin: 12px 0;
+    }
+
+    .pressbox p {
+      max-width: 730px;
+      line-height: 1.7;
+    }
+
+    .presslinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .presslinks a {
+      display: inline-block;
+      background: white;
+      border: 2px solid #34322f;
+      padding: 9px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 3px 3px 0 var(--line);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .presslinks a:hover {
+      background: #ffe8a3;
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--line);
+    }
+
+    /* ==========================================================================
+       15. SECTION 09: CONTACT & FOOTER
+       ========================================================================== */
+    .contact {
+      position: relative;
+      text-align: center;
+    }
+
+    .contactcard {
+      background: var(--mint);
+      padding: 85px 36px !important;
+      border: 2px solid var(--ink);
+      border-radius: 35px;
+      box-shadow: 9px 10px 0 var(--ink);
+    }
+
+    .contactcard h2 {
+      font: 700 clamp(42px, 6vw, 80px) / 1.1 Fredoka, sans-serif;
+      letter-spacing: -2px;
+      margin-bottom: 24px !important;
+    }
+
+    .contactcard p {
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .contactcard .btn {
+      margin-top: 24px;
+      background: var(--pink);
+    }
+
+    .contactlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .contactlinks a {
+      display: inline-flex;
+      border: 2px solid var(--ink);
+      border-radius: 15px;
+      padding: 11px 15px;
+      font-weight: 800;
+      background: #fffdfa;
+      box-shadow: 3px 4px 0 var(--ink);
+      font-size: 13px;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .contactlinks a:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-top: 25px !important;
+      padding-bottom: 32px !important;
+      font-size: 13px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .floating {
+      position: absolute;
+      font-size: 54px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-13px) rotate(9deg);
+      }
+    }
+
+    .fl1 {
+      left: 4%;
+      top: 55px;
+    }
+
+    .fl2 {
+      right: 5%;
+      bottom: 40px;
+      animation-delay: 1s;
+    }
+
+    /* ==========================================================================
+       16. RESPONSIVE MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 900px) {
+      .navlinks {
+        display: none !important;
+      }
+
+      .menu-toggle {
+        display: inline-flex !important;
+      }
+
+      section,
+      .projects,
+      .case-study-section,
+      .academic,
+      .source-section,
+      .skillsarea,
+      .journey,
+      .gallery-section,
+      .contact {
+        padding-top: 105px !important;
+        padding-bottom: 105px !important;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 35px;
+      }
+
+      .heroart {
+        max-width: 420px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .about,
+      .skillsarea {
+        grid-template-columns: 1fr;
+      }
+
+      .skillsarea {
+        gap: 36px !important;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .case-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .acagrid {
+        grid-template-columns: 1fr;
+      }
+
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallerygrid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .wrap {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .nav-actions .hire {
+        display: none;
+      }
+
+      section,
+      .projects,
+      .case-study-section,
+      .academic,
+      .source-section,
+      .skillsarea,
+      .journey,
+      .gallery-section,
+      .contact {
+        padding-top: 90px !important;
+        padding-bottom: 90px !important;
+      }
+
+      .hero {
+        gap: 28px !important;
+        padding-top: 45px !important;
+        padding-bottom: 65px !important;
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 9.5vw, 68px) !important;
+        line-height: 1.22 !important;
+        letter-spacing: -1.5px;
+      }
+
+      .hero h1 .bubble {
+        margin-top: 10px;
+        padding: 3px 16px 6px;
+      }
+
+      .heroart {
+        height: 410px;
+      }
+
+      .arch {
+        inset: 17px 27px 12px 27px;
+      }
+
+      .tag1 {
+        left: 4px !important;
+        top: 90px !important;
+        font-size: 11px !important;
+        padding: 7px 11px !important;
+      }
+
+      .tag2 {
+        right: 4px !important;
+        bottom: 65px !important;
+        font-size: 11px !important;
+        padding: 7px 11px !important;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sectiontop {
+        display: block;
+        margin-bottom: 34px !important;
+      }
+
+      .sectiontop p {
+        max-width: 100% !important;
+        margin-top: 10px;
+      }
+
+      .skillcards {
+        gap: 10px;
+      }
+
+      .skill {
+        padding: 15px;
+        min-height: 126px;
+      }
+
+      .skill strong {
+        font-size: 18px;
+      }
+
+      .topline {
+        font-size: 10px;
+      }
+
+      .hire {
+        padding: 10px 13px;
+        font-size: 12px;
+      }
+
+      .lead {
+        font-size: 15px;
+      }
+
+      .projectvisual {
+        height: 230px;
+      }
+
+      .aboutbox {
+        padding: 23px;
+      }
+
+      .contactcard {
+        padding: 65px 20px !important;
+      }
+
+      .fl1,
+      .fl2 {
+        display: none;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topline">
+    ✿ OPEN FOR COLLABORATION &amp; CREATIVE IDEAS ✿
+  </div>
+  <header class="site-header">
+  <nav class="wrap">
+    <a class="logo" href="#home">
+      Portofolio
+      <span>
+        Zaira
+      </span>
+    </a>
+    <div class="navlinks">
+      <a href="#about">
+        About
+      </a>
+      <a href="#work">
+        Projects
+      </a>
+      <a href="#skills">
+        Skills
+      </a>
+      <a href="#journey">
+        Journey
+      </a>
+      <a href="#gallery">
+        Gallery
+      </a>
+    </div>
+    <div class="nav-actions">
+      <a class="nav-cv" download="CV_Zaira_Nur_Azizah.pdf" href="assets/CV_Zaira_Nur_Azizah.pdf">
+        ↓
+        CV
+      </a>
+      <a class="hire" href="#contact">
+        Say hello ↗
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu navigasi" aria-expanded="false"
+        aria-controls="mobileMenu">
+        <span class="hamburger-box" aria-hidden="true">
+          <span class="hamburger-bar">
+          </span>
+          <span class="hamburger-bar">
+          </span>
+          <span class="hamburger-bar">
+          </span>
+        </span>
+        <span class="menu-text">
+          Menu
+        </span>
+      </button>
+    </div>
+  </nav>
+</header>
+  <!-- MOBILE NAVIGATION DRAWER & BACKDROP -->
+  <div class="mobile-menu-backdrop" id="menuBackdrop" aria-hidden="true">
+  </div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menu Navigasi Mobile" aria-hidden="true">
+    <div class="mobile-menu-top">
+      <div class="mobile-menu-brand">
+        Portofolio
+        <span>
+          Zaira
+        </span>
+        ✿
+      </div>
+      <button class="mobile-menu-close" id="menuClose" aria-label="Tutup menu">
+        ✕
+      </button>
+    </div>
+    <div class="mobile-menu-scroll">
+      <div class="mobile-section-label">
+        NAVIGASI HALAMAN
+      </div>
+      <nav class="mobile-links">
+        <a href="#about" class="m-link">
+          <span class="m-badge">
+            01
+          </span>
+          <span class="m-text">
+            About me
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#work" class="m-link">
+          <span class="m-badge">
+            02
+          </span>
+          <span class="m-text">
+            My works
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#case-study" class="m-link">
+          <span class="m-badge">
+            03
+          </span>
+          <span class="m-text">
+            Case studies
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#academic-projects" class="m-link">
+          <span class="m-badge">
+            04
+          </span>
+          <span class="m-text">
+            Academic projects
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#data-sourcing" class="m-link">
+          <span class="m-badge">
+            05
+          </span>
+          <span class="m-text">
+            Data sources
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#skills" class="m-link">
+          <span class="m-badge">
+            06
+          </span>
+          <span class="m-text">
+            My superpowers
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#journey" class="m-link">
+          <span class="m-badge">
+            07
+          </span>
+          <span class="m-text">
+            Journey
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#gallery" class="m-link">
+          <span class="m-badge">
+            08
+          </span>
+          <span class="m-text">
+            Gallery
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+        <a href="#contact" class="m-link">
+          <span class="m-badge">
+            09
+          </span>
+          <span class="m-text">
+            Contact
+          </span>
+          <span class="m-arrow">
+            ↗
+          </span>
+        </a>
+      </nav>
+      <div class="mobile-menu-divider">
+      </div>
+      <div class="mobile-menu-actions">
+        <a class="mobile-btn mobile-hire" href="#contact">
+          Say hello ↗
+        </a>
+        <a class="mobile-btn mobile-cv" download="CV_Zaira_Nur_Azizah.pdf" href="assets/CV_Zaira_Nur_Azizah.pdf">
+          ↓
+          Unduh CV (PDF)
+        </a>
+      </div>
+      <div class="mobile-menu-footer">
+        <div>
+          📍 Bogor, Indonesia
+        </div>
+        <div>
+          Management Student &amp; Data Analyst
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main>
+    <section class="wrap hero" id="home">
+      <div>
+        <div class="tiny">
+          <span class="dot">
+          </span>
+          HI, NICE TO MEET YOU! ♡
+        </div>
+        <h1>
+          Turning
+          <em>
+            data
+          </em>
+          into
+          <br />
+          <span class="bubble">
+            insight. ✦
+          </span>
+        </h1>
+        <p class="lead">
+          Aku
+          <b>
+            Zaira Nur Azizah
+          </b>
+          — mahasiswa Manajemen yang berfokus pada analisis data,
+          pengolahan informasi, dan pemecahan masalah bisnis menggunakan Microsoft Excel dan Google Sheets.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#work">
+            Explore my works ↗
+          </a>
+          <a class="btn secondary" href="#about">
+            About me
+          </a>
+          <a aria-label="Download Curriculum Vitae Zaira dalam PDF" class="btn cv-download"
+            download="CV_Zaira_Nur_Azizah.pdf" href="assets/CV_Zaira_Nur_Azizah.pdf">
+            ↓
+            Download CV (PDF)
+          </a>
+        </div>
+      </div>
+      <div aria-label="Foto Zaira dalam acara Grand Showcase CAP" class="heroart">
+        <div class="arch">
+          <img alt="Zaira Nur Azizah menunjukkan sertifikat Champion Ambassador Project" class="realportrait"
+            src="assets/images/zaira_portrait.jpg" />
+        </div>
+        <div class="arttag tag1">
+          ✳ DATA GIRLIE
+        </div>
+        <div class="arttag tag2">
+          ♡ BIG DREAMS
+        </div>
+        <div class="asterisk">
+          ✳
+        </div>
+        <div class="star">
+          ✦
+        </div>
+      </div>
+    </section>
+    <div class="marquee">
+      <div>
+        <span>
+          ✦ DATA ANALYSIS ✿ CREATIVE THINKING ✦ PROJECT MANAGEMENT ♡ DESIGN &amp; INNOVATION ✦ DATA
+          ANALYSIS ✿ CREATIVE THINKING ✦ PROJECT MANAGEMENT ♡ DESIGN &amp; INNOVATION
+        </span>
+        <span>
+          ✦ DATA
+          ANALYSIS ✿ CREATIVE THINKING ✦ PROJECT MANAGEMENT ♡ DESIGN &amp; INNOVATION ✦ DATA ANALYSIS ✿
+          CREATIVE THINKING ✦ PROJECT MANAGEMENT ♡ DESIGN &amp; INNOVATION
+        </span>
+      </div>
+    </div>
+    <section class="wrap reveal" id="about">
+      <div class="eyebrow">
+        01 / THE GIRL BEHIND THE IDEAS
+      </div>
+      <h2 class="sectitle">
+        A little bit
+        <i>
+          about me.
+        </i>
+        ✿
+      </h2>
+      <div class="about">
+        <div class="aboutbox">
+          <h3>
+            About me
+          </h3>
+          <p>
+            Aku mahasiswi S1 Manajemen Universitas Nusa Bangsa, dengan minat pada pengumpulan data sekunder,
+            data cleaning, analisis statistik, dan penyajian insight. Aku menggunakan Microsoft Excel,
+            Google Sheets, Word, serta SPSS, dan memiliki pengalaman dalam project evaluasi program,
+            organisasi, dan komunikasi publik.
+          </p>
+          <div class="chips">
+            <span class="chip">
+              📍 Bogor, Indonesia
+            </span>
+            <span class="chip">
+              🎓 Management
+              Student
+            </span>
+            <span class="chip">
+              📊 Data Enthusiast
+            </span>
+          </div>
+        </div>
+        <div class="aboutbox purple">
+          <h3>
+            What makes me, me? ✨
+          </h3>
+          <p>
+            Aku menggabungkan Excel, data cleaning, data visualization, public speaking, dan leadership. Aku
+            terus mengasah keterampilan melalui pelatihan digital marketing dan praktik langsung dalam
+            mengolah serta memvisualisasikan data dalam kegiatan kampus serta CAP.
+          </p>
+          <div class="chips">
+            <span class="chip">
+              Problem Solving
+            </span>
+            <span class="chip">
+              Teamwork
+            </span>
+            <span class="chip">
+              Leadership
+            </span>
+            <span class="chip">
+              Visual Storytelling
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="projects" id="work">
+      <div class="wrap">
+        <div class="sectiontop reveal">
+          <div>
+            <div class="eyebrow">
+              02 / SELECTED PROJECTS
+            </div>
+            <h2 class="sectitle">
+              Things I've
+              <i>
+                made.
+              </i>
+              ★
+            </h2>
+          </div>
+          <p>
+            Pilihan proyek dan kontribusiku — dengan peran individu dan kerja tim yang dijelaskan secara
+            transparan.
+          </p>
+        </div>
+        <div class="grid">
+          <article class="project reveal">
+            <div class="projectvisual green screenshot-visual">
+              <img
+                alt="Screenshot asli dashboard Ringkasan CoreMan Cost di Excel, berisi HPP, laba, BEP, target dan grafik"
+                loading="lazy" src="assets/images/coreman_cost_dashboard.png" />
+            </div>
+            <div class="projectbody">
+              <div class="index">
+                01 / BUSINESS ANALYTICS · PROJECT PRIBADI
+              </div>
+              <h3>
+                CoreMan Cost 📊
+              </h3>
+              <p>
+                Project pribadi: aku mengembangkan template Excel untuk membantu UMKM menghitung HPP,
+                harga jual, margin, BEP, target laba, dan perkiraan penjualan.
+              </p>
+              <a href="#case-study">
+                Lihat studi kasus &amp; dashboard ↗
+              </a>
+            </div>
+          </article>
+          <article class="project reveal">
+            <div class="projectvisual blue">
+              <span class="bigemoji">
+                📈
+              </span>
+              <span class="decosticker">
+                INSIGHTS FROM DATA
+              </span>
+            </div>
+            <div class="projectbody">
+              <div class="index">
+                02 / PROGRAM EVALUATION · TIM DATA ANALYST
+              </div>
+              <h3>
+                CAP Program Analysis 📈
+              </h3>
+              <p>
+                Kontribusi: data cleaning, pengolahan hasil survei, analisis perkembangan peserta, dan
+                visualisasi insight untuk kegiatan Champion Ambassador Project.
+              </p>
+              <a href="#cap-case-study">
+                Lihat studi kasus evaluasi ↗
+              </a>
+            </div>
+          </article>
+          <article class="project reveal">
+            <div class="projectvisual pink">
+              <span class="bigemoji">
+                ♻️
+              </span>
+              <span class="decosticker">
+                TEAM
+                PROJECT
+              </span>
+            </div>
+            <div class="projectbody">
+              <div class="index">
+                03 / SOCIAL IMPACT · PROYEK KELOMPOK
+              </div>
+              <h3>
+                Trashily Ecosystem ♻️
+              </h3>
+              <p>
+                Proyek kolaborasi pengelolaan sampah berbasis teknologi dan edukasi masyarakat. Peranku
+                di tim Data Analyst; ini bukan proyek milik pribadi.
+              </p>
+              <a href="#contact">
+                Let's talk
+                about this ↗
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section" id="case-study">
+      <div class="wrap">
+        <div class="eyebrow">
+          03 / FEATURED DATA CASE STUDIES
+        </div>
+        <h2 class="sectitle">
+          A closer look at
+          <i>
+            the numbers
+          </i>
+          &amp; stories. ♡
+        </h2>
+        <p class="case-intro">
+          Dua studi kasus penerapan analisis data:
+          <b>
+            CoreMan Cost
+          </b>
+          sebagai project
+          pribadi untuk simulasi biaya dan harga usaha, serta
+          <b>
+            Analisis Evaluasi CAP Fase II
+          </b>
+          sebagai
+          kontribusi dalam tim Data Analyst.
+        </p>
+        <div class="case-layout">
+          <div class="case-photo">
+            <img alt="Screenshot asli tampilan ringkasan CoreMan Cost di Microsoft Excel" loading="lazy"
+              src="assets/images/coreman_cost_dashboard.png" />
+            <span class="screenshot-caption">
+              📸 Tampilan asli dashboard CoreMan Cost · Data
+              simulasi/contoh
+            </span>
+          </div>
+          <div class="case-detail">
+            <span class="case-tag">
+              📊 EXCEL · BUSINESS COSTING
+            </span>
+            <h3>
+              From cost to clearer decisions ✨
+            </h3>
+            <p>
+              <b>
+                Tantangan:
+              </b>
+              pelaku UMKM perlu memahami biaya produksi, penentuan harga, laba, dan
+              kebutuhan penjualan tanpa harus menghitung semua secara manual.
+            </p>
+            <p>
+              <b>
+                Pendekatan:
+              </b>
+              template Excel merangkum input biaya, perhitungan HPP dan laba, analisis
+              BEP, target keuntungan, estimasi penjualan, serta visualisasi grafik.
+            </p>
+            <p>
+              <b>
+                Output:
+              </b>
+              halaman ringkasan dengan metrik dan interpretasi otomatis untuk membantu
+              pengguna membaca hasil perhitungan.
+            </p>
+            <div class="case-metrics">
+              <div>
+                <small>
+                  HPP / PRODUK
+                </small>
+                <strong>
+                  Rp10.500
+                </strong>
+              </div>
+              <div>
+                <small>
+                  HARGA JUAL
+                </small>
+                <strong>
+                  Rp15.000
+                </strong>
+              </div>
+              <div>
+                <small>
+                  LABA / PRODUK
+                </small>
+                <strong>
+                  Rp4.500
+                </strong>
+              </div>
+              <div>
+                <small>
+                  MARGIN THD. HARGA
+                </small>
+                <strong>
+                  30%
+                </strong>
+              </div>
+            </div>
+            <p class="case-note">
+              * Angka pada screenshot merupakan contoh pengisian template, bukan hasil
+              penjualan nyata. CoreMan Cost adalah project pribadi yang aku kembangkan.
+            </p>
+          </div>
+        </div>
+        <div class="case-divider">
+        </div>
+        <div class="case-subhead" id="cap-case-study">
+          <div class="case-kicker">
+            CASE 02 / PROGRAM EVALUATION
+          </div>
+          <h3>
+            Analisis Evaluasi CAP Fase II 📊
+          </h3>
+          <p>
+            Studi kasus ini menunjukkan peranku sebagai tim Data Analyst dalam membersihkan data survei
+            peserta, menyusun rekap penilaian, membuat visualisasi, dan menuliskan insight singkat yang siap
+            dipakai untuk kebutuhan booth, banner, atau laporan program.
+          </p>
+        </div>
+        <div class="case-layout">
+          <div class="case-photo">
+            <img alt="Screenshot asli Analisis Evaluasi CAP Fase II di Microsoft Excel" loading="lazy"
+              src="assets/images/cap_evaluation_dashboard.png" />
+          </div>
+          <div class="case-copy">
+            <span class="mini">
+              Program evaluation case
+            </span>
+            <h3>
+              Dari data survei ke insight yang actionable
+            </h3>
+            <p>
+              Fokus analisisnya adalah membaca perkembangan yang dirasakan peserta CAP Fase II dan
+              mengidentifikasi aktivitas mana yang dianggap paling bermanfaat. Data kemudian diringkas ke
+              dalam tabel, skor rata-rata, dan dua grafik utama agar hasilnya mudah dipresentasikan.
+            </p>
+            <div class="case-metrics">
+              <div>
+                <small>
+                  Ringkasan respon peserta
+                </small>
+                <strong>
+                  24–25 responden
+                </strong>
+              </div>
+              <div>
+                <small>
+                  Skor tertinggi: pengetahuan bidang/talent
+                </small>
+                <strong>
+                  4.40 / 5
+                </strong>
+              </div>
+              <div>
+                <small>
+                  Responden memberi skor 4–5 pada aspek tertinggi
+                </small>
+                <strong>
+                  92%
+                </strong>
+              </div>
+              <div>
+                <small>
+                  Aktivitas paling bermanfaat (19 pilihan)
+                </small>
+                <strong>
+                  Bootcamp Career
+                  Goal
+                </strong>
+              </div>
+            </div>
+            <div class="case-highlight">
+              <strong>
+                Insight utama yang ditampilkan
+              </strong>
+              <ul>
+                <li>
+                  Perkembangan paling tinggi terlihat pada pengetahuan bidang/talent (rata-rata 4,40)
+                  dan keterampilan praktik (4,28).
+                </li>
+                <li>
+                  Penggunaan alat/aplikasi juga dinilai baik (4,24), menunjukkan peserta merasa
+                  terbantu secara praktis.
+                </li>
+                <li>
+                  Aktivitas yang paling berkesan bagi peserta adalah Bootcamp Career Goal,
+                  mentoring/coaching individual, dan Bootcamp SEL.
+                </li>
+                <li>
+                  Output analisis ini berguna untuk bahan evaluasi program sekaligus materi komunikasi
+                  visual pada booth atau banner.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="academic" id="academic-projects">
+      <div class="wrap">
+        <div class="eyebrow">
+          04 / ACADEMIC PROJECTS &amp; RISET
+        </div>
+        <h2 class="sectitle">
+          Research,
+          <i>
+            numbers
+          </i>
+          &amp; findings ✿
+        </h2>
+        <p class="academicsub">
+          Kumpulan analisis berbasis data, riset ekonomi, statistik, dan studi kelayakan
+          finansial dari tugas kelompok perkuliahan. Setiap project ditampilkan berdasarkan hasil dokumen dan
+          kontribusi analisis yang dapat dijelaskan secara transparan.
+        </p>
+        <div class="acagrid">
+          <article class="acacard reveal">
+            <div class="acavis">
+              <img alt="Cuplikan halaman dari Kelayakan Investasi Dealer Al-Marjan Motor" loading="lazy"
+                src="assets/images/al_marjan_motor.jpg" />
+              <span class="bubblelabel">
+                GROUP ACADEMIC PROJECT
+              </span>
+            </div>
+            <div class="acabody">
+              <span class="acaeyebrow">
+                MANAJEMEN KEUANGAN · 2025/2026
+              </span>
+              <h3>
+                Kelayakan Investasi Dealer Al-Marjan Motor
+              </h3>
+              <p>
+                Analisis kelayakan finansial usaha dealer sepeda motor berdasarkan data 2021–2023
+                menggunakan metode PP, ARR, NPV, PI, dan IRR. Laporan kelompok menyatakan investasi
+                layak pada asumsi yang dipakai.
+              </p>
+              <div class="acametric">
+                <strong>
+                  IRR 26,17%
+                </strong>
+                Di atas tingkat diskonto 18% · kesimpulan
+                dalam laporan: layak
+              </div>
+              <div class="acatag">
+                <span>
+                  Investment Analysis
+                </span>
+                <span>
+                  NPV &amp;
+                  IRR
+                </span>
+                <span>
+                  Financial Feasibility
+                </span>
+              </div>
+              <div class="contribution-note">
+                <strong>
+                  LEAD ANALYST · KONTRIBUTOR UTAMA
+                </strong>
+                <p>
+                  Kontribusi pribadi: kontributor utama (sekitar 90% pengerjaan menurut pembagian kerja
+                  kelompok), termasuk analisis finansial, penghitungan indikator investasi,
+                  interpretasi, dan penyusunan laporan.
+                </p>
+              </div>
+              <a class="acalink" href="academic_files/Laporan Menkeu.docx (1).pdf" rel="noopener noreferrer"
+                target="_blank">
+                Baca laporan kelompok (PDF) ↗
+              </a>
+            </div>
+          </article>
+          <article class="acacard reveal">
+            <div class="acavis">
+              <img alt="Cuplikan halaman dari Inflasi, Suku Bunga &amp; Pertumbuhan Ekonomi Indonesia" loading="lazy"
+                src="assets/images/inflasi_ekonomi.jpg" />
+              <span class="bubblelabel">
+                GROUP ACADEMIC PROJECT
+              </span>
+            </div>
+            <div class="acabody">
+              <span class="acaeyebrow">
+                STATISTIKA INFERENSIAL · 2010–2023
+              </span>
+              <h3>
+                Inflasi, Suku Bunga &amp; Pertumbuhan Ekonomi Indonesia
+              </h3>
+              <p>
+                Pengolahan data sekunder tahunan melalui Microsoft Excel untuk regresi linear berganda,
+                statistik deskriptif, uji t, uji F, dan interpretasi koefisien determinasi.
+              </p>
+              <div class="acametric">
+                <strong>
+                  R² = 26,07%
+                </strong>
+                Uji F p = 0,1899; hasil penelitian tidak
+                signifikan
+              </div>
+              <div class="acatag">
+                <span>
+                  Microsoft Excel
+                </span>
+                <span>
+                  Multiple
+                  Regression
+                </span>
+                <span>
+                  Macroeconomics
+                </span>
+              </div>
+              <div class="contribution-note">
+                <strong>
+                  ANALISIS DATA · KONTRIBUSI PRIBADI
+                </strong>
+                <p>
+                  Kontribusi pribadi: bertanggung jawab atas bagian analisis data dan interpretasi
+                  hasil regresi pada laporan kelompok.
+                </p>
+              </div>
+              <a class="acalink" href="academic_files/PROYEK AKHIR STATISTIKA KEL 1.pdf" rel="noopener noreferrer"
+                target="_blank">
+                Baca laporan kelompok (PDF) ↗
+              </a>
+            </div>
+          </article>
+          <article class="acacard reveal">
+            <div class="acavis">
+              <img alt="Cuplikan halaman dari Analisis Regresi Moderasi dengan SPSS" loading="lazy"
+                src="assets/images/regresi_spss.jpg" />
+              <span class="bubblelabel">
+                GROUP ACADEMIC PROJECT
+              </span>
+            </div>
+            <div class="acabody">
+              <span class="acaeyebrow">
+                UAS PENGOLAHAN DATA STATISTIK · 2026
+              </span>
+              <h3>
+                Analisis Regresi Moderasi dengan SPSS
+              </h3>
+              <p>
+                Analisis pengaruh persepsi kualitas dan persepsi manfaat terhadap minat beli ulang,
+                dengan kepuasan sebagai variabel moderasi. Kontribusi pribadiku berfokus pada
+                interpretasi hasil analisis statistik dan uji asumsi klasik.
+              </p>
+              <div class="acametric">
+                <strong>
+                  R² Model 2 = 66,4%
+                </strong>
+                Interaksi moderasi tidak
+                signifikan (p = 0,174 &amp; 0,052)
+              </div>
+              <div class="acatag">
+                <span>
+                  IBM SPSS
+                </span>
+                <span>
+                  MRA
+                </span>
+                <span>
+                  Statistical
+                  Interpretation
+                </span>
+              </div>
+              <div class="contribution-note">
+                <strong>
+                  ANALYST · IBM SPSS
+                </strong>
+                <p>
+                  Kontribusi pribadi: bertanggung jawab atas analisis SPSS, pembacaan koefisien,
+                  interpretasi hasil, dan uji asumsi klasik.
+                </p>
+              </div>
+              <a class="acalink" href="academic_files/UAS STATISTIK KEL 5.pdf" rel="noopener noreferrer"
+                target="_blank">
+                Baca laporan kelompok (PDF) ↗
+              </a>
+            </div>
+          </article>
+          <article class="acacard reveal">
+            <div class="acavis">
+              <img alt="Cuplikan halaman dari Analisis PDRB Kabupaten Nganjuk 2020–2024" loading="lazy"
+                src="assets/images/pdrb_nganjuk.jpg" />
+              <span class="bubblelabel">
+                GROUP ACADEMIC PROJECT
+              </span>
+            </div>
+            <div class="acabody">
+              <span class="acaeyebrow">
+                JURNAL TUGAS KELOMPOK · EKONOMI MAKRO
+              </span>
+              <h3>
+                Analisis PDRB Kabupaten Nganjuk 2020–2024
+              </h3>
+              <p>
+                Kajian pertumbuhan ekonomi regional berdasarkan data BPS dengan pendekatan laju
+                pertumbuhan, Location Quotient (LQ), dan analisis Shift-Share dalam naskah penelitian
+                kelompok.
+              </p>
+              <div class="acametric">
+                <strong>
+                  LQ sektor pertanian = 1,02
+                </strong>
+                Pertanian, kehutanan, dan
+                perikanan merupakan sektor basis dalam laporan
+              </div>
+              <div class="acatag">
+                <span>
+                  Economic Research
+                </span>
+                <span>
+                  Location Quotient
+                </span>
+                <span>
+                  BPS
+                  Data
+                </span>
+              </div>
+              <div class="contribution-note">
+                <strong>
+                  ANALISIS EKONOMI · KONTRIBUSI PRIBADI
+                </strong>
+                <p>
+                  Kontribusi pribadi: bertanggung jawab atas bagian analisis ekonomi regional dan
+                  interpretasi hasil dalam naskah jurnal kelompok.
+                </p>
+              </div>
+              <a class="acalink" href="academic_files/Jurnal Analisis PDRB Kabupaten Nganjuk Tahun 2020-2024.pdf"
+                rel="noopener noreferrer" target="_blank">
+                Baca laporan kelompok (PDF) ↗
+              </a>
+            </div>
+          </article>
+        </div>
+        <p class="acanote">
+          Catatan: keempat dokumen merupakan hasil kelompok. UAS SPSS menonjolkan peranku pada
+          interpretasi analisis; kontribusi khusus per anggota pada laporan lainnya tidak dirinci. Angka di
+          atas merupakan hasil yang dilaporkan dalam dokumen akademik, bukan audit atau validasi ulang data
+          sumber.
+        </p>
+      </div>
+    </section>
+    <section class="source-section" id="data-sourcing">
+      <div class="wrap">
+        <div class="eyebrow">
+          05 / DATA WORKFLOW &amp; SOURCING
+        </div>
+        <h2 class="sectitle">
+          Where the
+          <i>
+            data begins.
+          </i>
+        </h2>
+        <p>
+          Sebelum menganalisis, aku terbiasa menelusuri sumber data sekunder, memilih seri dan periode yang
+          relevan, lalu menata data agar siap dipakai di Excel atau Google Sheets. Contohnya, pengambilan data
+          harga pangan dari PIHPS Bank Indonesia dan indikator ekonomi dari Badan Pusat Statistik (BPS).
+        </p>
+        <div class="source-grid">
+          <article class="source-card">
+            <img alt="Screenshot asli PIHPS — Data Harga Pangan" class="source-img" loading="lazy"
+              src="assets/images/pihps_harga_pangan.jpg" />
+            <div class="source-content">
+              <div class="source-label">
+                DATA COLLECTION · MICROECONOMICS
+              </div>
+              <h3>
+                PIHPS — Data Harga Pangan
+              </h3>
+              <p>
+                Mengumpulkan dan merekap data harga minyak goreng dari PIHPS. File rekap memuat tanggal
+                serta tiga kategori: minyak curah, minyak kemasan 1, dan minyak kemasan 2.
+              </p>
+              <div class="source-chips">
+                <span>
+                  Excel
+                </span>
+                <span>
+                  Data Recap
+                </span>
+                <span>
+                  Price
+                  Monitoring
+                </span>
+              </div>
+            </div>
+          </article>
+          <article class="source-card">
+            <img alt="Screenshot asli BPS — Data Indikator Ekonomi" class="source-img" loading="lazy"
+              src="assets/images/bps_indikator_ekonomi.jpg" />
+            <div class="source-content">
+              <div class="source-label">
+                DATA SOURCING · STATISTICS
+              </div>
+              <h3>
+                BPS — Data Indikator Ekonomi
+              </h3>
+              <p>
+                Menggunakan BPS Query Builder untuk menelusuri dan mengekspor seri pertumbuhan PDB serta
+                data inflasi dalam format CSV, sebagai sumber data sekunder untuk tugas analisis
+                statistik.
+              </p>
+              <div class="source-chips">
+                <span>
+                  BPS Query Builder
+                </span>
+                <span>
+                  CSV
+                </span>
+                <span>
+                  Excel
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="source-note">
+          Dokumentasi berasal dari screenshot dan file data yang aku gunakan dalam kegiatan
+          akademik. Bagian ini menampilkan proses pengambilan dan penataan data, bukan mengklaim hasil riset
+          atau publikasi independen.
+        </p>
+      </div>
+    </section>
+    <section class="wrap skillsarea" id="skills">
+      <div class="reveal">
+        <div class="eyebrow">
+          06 / WHAT I BRING TO THE TABLE
+        </div>
+        <h2 class="sectitle">
+          Tools &amp;
+          <i>
+            skills.
+          </i>
+        </h2>
+        <p class="lead">
+          Mengolah dan menyajikan data untuk mendukung evaluasi dan pengambilan keputusan. Tools
+          yang biasa aku gunakan: Microsoft Excel, Google Sheets, Microsoft Word, serta IBM SPSS Statistics
+          untuk analisis statistik. Aku juga terbiasa mengambil data sekunder dari BPS dan PIHPS.
+        </p>
+        <div class="chips">
+          <span class="chip">
+            Microsoft Excel
+          </span>
+          <span class="chip">
+            Google Sheets
+          </span>
+          <span class="chip">
+            Microsoft Word
+          </span>
+          <span class="chip">
+            Data Cleaning
+          </span>
+          <span class="chip">
+            Data
+            Visualization
+          </span>
+          <span class="chip">
+            IBM SPSS Statistics · Regression
+          </span>
+          <span class="chip">
+            Business Analysis
+          </span>
+          <span class="chip">
+            Public Speaking
+          </span>
+          <span class="chip">
+            Leadership
+          </span>
+          <span class="chip">
+            Data Sourcing · BPS &amp; PIHPS
+          </span>
+        </div>
+      </div>
+      <div class="skillcards reveal">
+        <div class="skill">
+          <div>
+            📊
+          </div>
+          <strong>
+            Data Analysis
+          </strong>
+          <small>
+            Cleaning, statistics &amp; insights
+          </small>
+        </div>
+        <div class="skill">
+          <div>
+            📈
+          </div>
+          <strong>
+            Excel &amp; Sheets
+          </strong>
+          <small>
+            Tables, formulas &amp; charts
+          </small>
+        </div>
+        <div class="skill">
+          <div>
+            💼
+          </div>
+          <strong>
+            Business Analysis
+          </strong>
+          <small>
+            Financial feasibility &amp; costing
+          </small>
+        </div>
+        <div class="skill">
+          <div>
+            🤝
+          </div>
+          <strong>
+            Communication
+          </strong>
+          <small>
+            Presentation &amp; teamwork
+          </small>
+        </div>
+      </div>
+    </section>
+    <section class="journey" id="journey">
+      <div class="wrap">
+        <div class="eyebrow">
+          07 / EXPERIENCE &amp; GROWTH
+        </div>
+        <h2 class="sectitle">
+          The journey so
+          <i>
+            far.
+          </i>
+          ☁
+        </h2>
+        <div class="timeline">
+          <div class="timecard reveal">
+            <span class="year">
+              2024–2025
+            </span>
+            <h3>
+              Host Live — Pusat Niaga 🎙️
+            </h3>
+            <p>
+              Host Live di Pusat Niaga (2024–2025). Membawakan siaran langsung, berinteraksi dengan
+              audiens, dan mengasah komunikasi persuasif serta presentasi produk.
+            </p>
+          </div>
+          <div class="timecard reveal">
+            <span class="year">
+              ORGANISASI KAMPUS
+            </span>
+            <h3>
+              Bendahara KSPM 💼
+            </h3>
+            <p>
+              Berperan sebagai Bendahara Kelompok Studi Pasar Modal (KSPM) di Universitas Nusa Bangsa.
+            </p>
+          </div>
+          <div class="timecard reveal">
+            <span class="year">
+              KEPANITIAAN
+            </span>
+            <h3>
+              Seminar Sekolah Pasar Modal 📚
+            </h3>
+            <p>
+              Panitia peresmian Galeri Investasi BEI UNB dan Sekolah Pasar Modal pada 9 Juni 2026;
+              berkontribusi pada kebendaharaan dan data cleaning.
+            </p>
+            <div class="presslinks">
+              <a href="https://pilarmerdeka.com/unb-resmi-miliki-galeri-investasi-bei-wadah-eduka/"
+                rel="noopener noreferrer" target="_blank">
+                Pilar Merdeka ↗
+              </a>
+              <a href="https://www.kobrapostonline.com/galeri-investasi-bursa-efek-indonesia-resm/"
+                rel="noopener noreferrer" target="_blank">
+                Kobra Post ↗
+              </a>
+            </div>
+          </div>
+          <div class="timecard reveal">
+            <span class="year">
+              2026
+            </span>
+            <h3>
+              Peserta CAP Fase II — Bidang Data Analyst ✨
+            </h3>
+            <p>
+              Mengikuti Champion Ambassador Project Fase II sebagai peserta Bidang Data Analyst, termasuk
+              mentoring Microsoft Excel. Berkontribusi dalam analisis evaluasi survei peserta sebagai
+              bagian dari project tim.
+            </p>
+          </div>
+          <div class="timecard reveal">
+            <span class="year">
+              2026 · CHAMPION AMBASSADOR PROJECT
+            </span>
+            <h3>
+              Mentoring Microsoft Excel 📗
+            </h3>
+            <p>
+              Mengikuti mentoring Excel selama Champion Ambassador Project untuk memperdalam pengolahan
+              data, penggunaan fitur spreadsheet, dan penyajian analisis secara lebih terstruktur.
+            </p>
+          </div>
+          <div class="timecard reveal">
+            <span class="year">
+              PELATIHAN
+            </span>
+            <h3>
+              Data &amp; Digital Marketing 🎓
+            </h3>
+            <p>
+              Memiliki sertifikat Data Analyst dan mengikuti pelatihan Digital Marketing bersama LSP
+              Digital Marketing Indonesia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="sectiontop reveal">
+          <div>
+            <div class="eyebrow">
+              08 / MOMENTS &amp; MEMORIES
+            </div>
+            <h2 class="sectitle">
+              A little
+              <i>
+                photo diary.
+              </i>
+              📸
+            </h2>
+          </div>
+          <p>
+            Potongan momen nyata dari pengalaman kolaborasi, pengembangan diri, dan kegiatan kampus.
+          </p>
+        </div>
+        <div class="gallerygrid">
+          <figure class="photocard reveal">
+            <img alt="Foto bersama dalam Grand Showcase Champion Ambassador Project Fase II" loading="lazy"
+              src="assets/images/gallery_grand_showcase.jpg" />
+            <figcaption>
+              <strong>
+                Grand Showcase CAP Fase II ✨
+              </strong>
+              <span>
+                Dokumentasi acara dan showcase
+                berbagai project kolaboratif.
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="photocard reveal">
+            <img alt="Peserta Champion Ambassador Project Fase II dalam acara pengukuhan" loading="lazy"
+              src="assets/images/gallery_inauguration.jpg" />
+            <figcaption>
+              <strong>
+                Champion Ambassador Inauguration 🌷
+              </strong>
+              <span>
+                Momen pengukuhan bersama
+                peserta Champion Ambassador.
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="photocard reveal">
+            <img alt="Foto tim panitia Sekolah Pasar Modal Universitas Nusa Bangsa" loading="lazy"
+              src="assets/images/gallery_panitia_spm.jpg" />
+            <figcaption>
+              <strong>
+                KSPM &amp; Sekolah Pasar Modal 📊
+              </strong>
+              <span>
+                Berkolaborasi bersama
+                panitia kegiatan pasar modal di kampus.
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="photocard reveal">
+            <img alt="Dokumentasi peresmian Galeri Investasi BEI Universitas Nusa Bangsa" loading="lazy"
+              src="assets/images/gallery_peresmian_bei.jpg" />
+            <figcaption>
+              <strong>
+                Peresmian Galeri Investasi BEI 💜
+              </strong>
+              <span>
+                9 Juni 2026 · Universitas
+                Nusa Bangsa, Bogor
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="pressbox reveal">
+          <span>
+            📰 IN THE NEWS
+          </span>
+          <h3>
+            Kegiatan KSPM dalam pemberitaan
+          </h3>
+          <p>
+            Dokumentasi media tentang peresmian Galeri Investasi BEI UNB dan penyelenggaraan Sekolah Pasar
+            Modal. Artikel membahas kegiatannya secara umum.
+          </p>
+          <div class="presslinks">
+            <a href="https://pilarmerdeka.com/unb-resmi-miliki-galeri-investasi-bei-wadah-eduka/"
+              rel="noopener noreferrer" target="_blank">
+              Baca Pilar Merdeka ↗
+            </a>
+            <a href="https://www.kobrapostonline.com/galeri-investasi-bursa-efek-indonesia-resm/"
+              rel="noopener noreferrer" target="_blank">
+              Baca Kobra Post ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap contact" id="contact">
+      <span class="floating fl1">
+        🌼
+      </span>
+      <span class="floating fl2">
+        💌
+      </span>
+      <div class="contactcard reveal">
+        <div class="eyebrow">
+          09 / LET'S CONNECT
+        </div>
+        <h2>
+          Let’s connect &amp;
+          <span style="color:#e483a3">
+            collaborate.
+          </span>
+        </h2>
+        <p>
+          Terbuka untuk kesempatan di bidang data, business analysis, administrasi, dan kolaborasi project.
+          Domisili Bogor, Indonesia.
+        </p>
+        <a class="btn" href="mailto:zairanurazizah97@gmail.com">
+          Send me a
+          little hello 💌
+        </a>
+        <div class="contactlinks">
+          <a href="mailto:zairanurazizah97@gmail.com">
+            ✉️ Email
+          </a>
+          <a href="https://wa.me/6285892898940?text=Halo%20Zaira%2C%20aku%20melihat%20portofoliomu%20dan%20ingin%20menghubungi%20kamu."
+            rel="noopener noreferrer" target="_blank">
+            💬 Chat via WhatsApp
+          </a>
+          <a href="https://www.instagram.com/zairanrazz/" rel="noopener noreferrer" target="_blank">
+            📸
+            Instagram @zairanrazz
+          </a>
+          <a download="CV_Zaira_Nur_Azizah.pdf" href="assets/CV_Zaira_Nur_Azizah.pdf">
+            📄
+            Download CV
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <strong>
+      Portofolio Zaira — made with ♡ and a little bit of magic.
+    </strong>
+    <span>
+      ©
+      <span id="year">
+        2026
+      </span>
+      Zaira Nur Azizah
+    </span>
+    <a href="#home">
+      Back to top ↑
+    </a>
+  </footer>
+
+  <script>
+    // Set dynamic year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal observer
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('show');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: .08 });
+
+    document.querySelectorAll('.reveal').forEach(e => obs.observe(e));
+
+    // Mobile Navigation Toggle
+    (function () {
+      const menuToggle = document.getElementById('menuToggle');
+      const menuClose = document.getElementById('menuClose');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBackdrop = document.getElementById('menuBackdrop');
+      const mobileLinks = document.querySelectorAll('.mobile-links a, .mobile-menu-actions a');
+
+      function openMenu() {
+        if (!mobileMenu || !menuBackdrop || !menuToggle) return;
+        mobileMenu.classList.add('open');
+        menuBackdrop.classList.add('open');
+        menuToggle.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        if (!mobileMenu || !menuBackdrop || !menuToggle) return;
+        mobileMenu.classList.remove('open');
+        menuBackdrop.classList.remove('open');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const isOpen = mobileMenu.classList.contains('open');
+          isOpen ? closeMenu() : openMenu();
+        });
+      }
+
+      if (menuClose) {
+        menuClose.addEventListener('click', function (e) {
+          e.stopPropagation();
+          closeMenu();
+        });
+      }
+
+      if (menuBackdrop) {
+        menuBackdrop.addEventListener('click', closeMenu);
+      }
+
+      mobileLinks.forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
